@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
 
   todo: Todo;
   note: Note;
+  title: string;
+
 
   ngOnInit() {
     this.td.getTodo()
@@ -24,8 +26,8 @@ export class AppComponent implements OnInit {
     });
   }
 
-  add() {
-    this.td.addTodo(this.note)
+  add(title, description) {
+    this.td.addTodo({title: title, description: description})
     .subscribe((note) => {
       this.note.title = note.title,
       this.note.description = note.description
